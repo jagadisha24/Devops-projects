@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+    
+    stages{
+        stage('Build system details'){
+            steps{
+                sh ''' 
+                echo "system details-1st stage"
+                uname -a
+                '''
+            }
+        }
+
+        stage('Memory-details'){
+            steps{
+                sh '''
+                echo "Printing memory details"
+                free -h
+                '''
+            }
+        }
+
+        stage('Cpu details'){
+            steps{
+                sh ''' 
+                echo "printing the cpu details"
+                lscpu
+                '''
+            }
+        }
+
+        stage('date'){
+            steps{
+                sh ''' 
+                echo "printing the cuurent date"
+                date
+                '''                
+            }
+        }
+
+        stage('current-process-running'){
+            steps{
+                sh ''' 
+                echo "printing the cuurent process-running"
+                ps -eaf | head 
+                '''                
+            }
+        }
+
+        stage('diskspace'){
+            steps{
+                sh ''' 
+                echo "printing the Disk space"
+                df -kh
+                '''                
+            }
+        }
+    }
+}
