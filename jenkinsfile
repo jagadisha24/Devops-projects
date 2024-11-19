@@ -1,0 +1,11 @@
+pipeline {
+    agent any   
+
+    stages{
+        stage('intro') {
+            steps{
+                sh "echo hello world"
+            }
+        }
+    }
+}
