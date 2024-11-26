@@ -1,0 +1,18 @@
+pipeline{
+    agent any 
+    stages{
+        stage('checkout stage'){
+            steps{
+                git branch: 'jenkins',  url: 'https://github.com/ManojKRISHNAPPA/career-devops-micro.git'
+            }
+        }
+        
+        stage('Build'){
+            steps{
+                echo "Building the webooks.sh file"
+                sh 'chmod 777 webhook.sh '
+                sh './webhook.sh'
+            }
+        }
+    }
+}
